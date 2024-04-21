@@ -11,7 +11,7 @@
 
     <!-- Imagen -->
     <item
-        android:drawable="@drawable/actualizar_aplicacion"
+        android:drawable="@drawable/upload_peso_cuerpo"
         android:gravity="center">
         <bitmap
             android:width="200dp"
