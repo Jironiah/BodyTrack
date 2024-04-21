@@ -11,12 +11,15 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.example.cuerpo_peso.api.UnzipUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
+import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.nio.file.Paths
 import java.util.zip.ZipEntry
@@ -179,6 +182,81 @@ interface DAO {
 
 
     suspend fun restoreDatabase(context: Context) {
+        Log.d("restoreDatabase", "Iniciando restauración de la base de datos")
 
+        val db = DB.getDatabase(context)
+        val importDir = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+            "backupCuerpoPeso/"
+        )
+        // Importar datos de la base de datos desde los archivos CSV
+        val fileImagen = File(importDir, "imagen.csv")
+        val fileImagenesList = File(importDir, "imagenes_list.csv")
+
+        if (fileImagen.exists() && fileImagenesList.exists()) {
+            val inputStreamImagen = withContext(Dispatchers.IO) {
+                FileInputStream(fileImagen)
+            }
+            val inputStreamImagenesList = withContext(Dispatchers.IO) {
+                FileInputStream(fileImagenesList)
+            }
+
+            val readerImagen = BufferedReader(InputStreamReader(inputStreamImagen))
+            val readerImagenesList = BufferedReader(InputStreamReader(inputStreamImagenesList))
+
+            var line: String?
+            var line2: String?
+
+            // Importar tabla imagen
+            while (readerImagen.readLine().also { line = it } != null) {
+                val columns = line!!.split(",")
+                val imagen = imagen(
+                    id = columns[0].toIntOrNull(),
+                    dia = columns[1].toIntOrNull(),
+                    mes = columns[2].toIntOrNull(),
+                    nombre_imagen = columns[3],
+                    uri = columns[4],
+                    orden = columns[5].toIntOrNull()
+                )
+                db.DAO().insertImage(imagen)
+                Log.i("imagen", imagen.toString())
+            }
+
+            // Importar tabla imagenes_list
+            while (readerImagenesList.readLine().also { line2 = it } != null) {
+                val columns = line2!!.split(",")
+                val imagenesList = imagenes_list(
+                    id = columns[0].toIntOrNull(),
+                    dia = columns[1].toIntOrNull(),
+                    mes = columns[2].toIntOrNull(),
+                    imagen1 = columns[3],
+                    imagen2 = columns[4],
+                    imagen3 = columns[5],
+                    peso = columns[6].toDouble()
+                )
+                db.DAO().insertImagenesList(imagenesList)
+                Log.i("imagenesList", imagenesList.toString())
+            }
+
+            readerImagen.close()
+            readerImagenesList.close()
+        }
+
+        val zipFilepath = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+            "backupCuerpoPeso/backup.zip"
+        )
+        val destDirectory = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+            "Cuerpo_Peso/"
+        )
+        try {
+
+            UnzipUtils.unzip(zipFilepath, destDirectory.path)
+        } catch (e: IOException) {
+            Log.e("errorDescomprimir", e.message.toString())
+        }
+        Log.e("Backup", "Backup restaurada")
     }
+
 }
