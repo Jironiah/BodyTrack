@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_fotos_peso"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Peso e Imagenes" />
+
+    <item
+        android:id="@+id/nav_preview_fotos"
+        android:icon="@drawable/icon_camera"
+        android:title="Sacar Foto" />
+
+    <item
+        android:id="@+id/nav_listar"
+        android:icon="@drawable/listar_imagenes"
+        android:title="Listar fotos"/>
+
+</menu>

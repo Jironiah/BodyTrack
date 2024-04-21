@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <item
+        android:id="@+id/imgName"
+        android:title="Nombre Imagen" />
+    <item
+        android:id="@+id/btClosePopupFotosPeso"
+        android:title="Cerrar popup" />
+
+    <item
+        android:id="@+id/btDeleteImageFotosPeso"
+        android:title="Eliminar imagen" />
+</menu>

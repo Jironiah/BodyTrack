@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_fotos_peso">
+
+    <fragment
+        android:id="@+id/nav_fotos_peso"
+        android:name="com.example.cuerpo_peso.ui.fotos_peso"
+        android:label="Peso e imagenes"
+        tools:layout="@layout/fragment_fotos_peso" />
+
+    <fragment
+        android:id="@+id/nav_preview_fotos"
+        android:name="com.example.cuerpo_peso.ui.preview_fotos"
+        android:label="Sacar Foto"
+        tools:layout="@layout/fragment_preview_fotos" />
+
+    <fragment
+        android:id="@+id/nav_listar"
+        android:name="com.example.cuerpo_peso.ui.listar"
+        android:label="Listar Fotos"
+        tools:layout="@layout/fragment_listar" />
+</navigation>

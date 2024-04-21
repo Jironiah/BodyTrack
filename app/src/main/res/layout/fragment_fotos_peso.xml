@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image"
+    tools:context=".ui.fotos_peso">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btActualizarAplicacion"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btactualizaraplicacion_roundcorner"
+            app:layout_constraintBottom_toBottomOf="@+id/etPeso"
+            app:layout_constraintEnd_toStartOf="@+id/etPeso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etPeso" />
+
+        <ImageButton
+            android:id="@+id/btEliminarImagenes"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bteliminarimagenes_roundcorner"
+            android:contentDescription="Boton eliminar imagenes"
+            app:layout_constraintBottom_toBottomOf="@+id/etPeso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btSaveImagenPeso"
+            app:layout_constraintTop_toTopOf="@+id/etPeso" />
+
+        <EditText
+            android:id="@+id/etPeso"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/texto_ejemplo_peso"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@id/btSaveImagenPeso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btSaveImagenPeso"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btsaveimagenpeso_roundcorner"
+            app:layout_constraintBottom_toBottomOf="@+id/etPeso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etPeso"
+            app:layout_constraintTop_toTopOf="@+id/etPeso" />
+
+        <TextView
+            android:id="@+id/tvImagenesPesoAntiguo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Imagenes y Peso de ayer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btSaveImagenPeso" />
+
+        <TextView
+            android:id="@+id/tvPesoAntiguo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="25dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvImagenesPesoAntiguo" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gLrvImagenesAntiguas"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPesoAntiguo">
+
+            <ImageView
+                android:id="@+id/iv_imagen_antigua_1"
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:contentDescription="Imagen1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_imagen_antigua_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_imagen_antigua_2"
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:contentDescription="Imagen2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_imagen_antigua_3"
+                app:layout_constraintStart_toEndOf="@+id/iv_imagen_antigua_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_imagen_antigua_3"
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:contentDescription="Imagen2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_imagen_antigua_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/lLrvImagenes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gLrvImagenesAntiguas">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_imagenes_actuales"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gLBotones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLrvImagenes">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--                <ImageButton-->
+                <!--                    android:id="@+id/btEliminarImagenes"-->
+                <!--                    android:layout_width="48dp"-->
+                <!--                    android:layout_height="48dp"-->
+                <!--                    android:background="@drawable/bteliminarimagenes_roundcorner"-->
+                <!--                    android:contentDescription="Boton eliminar imagenes"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                <ImageButton-->
+                <!--                    android:id="@+id/btActualizarAplicacion"-->
+                <!--                    android:layout_width="48dp"-->
+                <!--                    android:layout_height="48dp"-->
+                <!--                    android:background="@drawable/btactualizaraplicacion_roundcorner"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

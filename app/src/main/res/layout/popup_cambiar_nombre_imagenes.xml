@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_nuevo_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:hint="Nuevo Nombre"
+        android:inputType="textCapWords"
+        android:textColorHint="@color/white" />
+
+    <Button
+        android:id="@+id/bt_confirmar_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:text="Confirmar" />
+
+    <Button
+        android:id="@+id/bt_cancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:text="Cancelar" />
+
+</LinearLayout>

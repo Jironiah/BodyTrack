@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/advertencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_gravity="top|center"
+        android:text="¿Quieres actualizar la aplicación?" />
+
+    <Button
+        android:id="@+id/btActualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:backgroundTint="@color/white"
+        android:text="Confirmar"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/btClosePopupActualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:backgroundTint="@color/white"
+        android:text="Cancelar"
+        android:textColor="@color/black" />
+</GridLayout>

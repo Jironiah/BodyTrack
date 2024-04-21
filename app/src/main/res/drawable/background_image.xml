@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Color de fondo -->
+    <item>
+        <color android:color="@color/grey"/>
+    </item>
+
+    <!-- Imagen -->
+    <item android:drawable="@drawable/app_icon"
+        android:gravity="center"
+        android:width="300dp"
+        android:height="300dp"/>
+
+</layer-list>

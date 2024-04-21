@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo con color y esquinas redondeadas -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/red" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <!-- Imagen -->
+    <item
+        android:drawable="@drawable/delete"
+        android:gravity="center">
+        <bitmap
+            android:width="200dp"
+            android:height="200dp"
+            android:gravity="center"
+            android:src="@drawable/upload_peso_cuerpo" />
+    </item>
+
+</layer-list>
